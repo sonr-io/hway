@@ -11,10 +11,10 @@ export RELEASE_DATE="$(date +%Y).$(date +%V).$(date +%u)"
 all: install test
 
 build: go.sum
-	go build -o build/hway .
+	go build -o bin/hway .
 
 install: go.sum
-	go install -mod=readonly ./cmd/hway
+	go install -mod=readonly .
 
 ########################################
 ### Tools & dependencies

@@ -1,0 +1,6 @@
+.DS_Store
+.aider*
+.vscode
+.idea
+bin
+tmp
