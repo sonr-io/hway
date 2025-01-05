@@ -77,7 +77,7 @@ CREATE TABLE sessions (
     challenge TEXT NOT NULL,
     is_human_first BOOLEAN NOT NULL DEFAULT FALSE CHECK(is_human_first IN (0,1)),
     is_human_last BOOLEAN NOT NULL DEFAULT FALSE CHECK(is_human_last IN (0,1)),
-    profile_id INTEGER NOT NULL
+    profile_id TEXT NOT NULL
 );
 
 -- Vaults store encrypted data

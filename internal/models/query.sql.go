@@ -56,7 +56,7 @@ type CreateSessionParams struct {
 	Challenge      string `json:"challenge"`
 	IsHumanFirst   bool   `json:"is_human_first"`
 	IsHumanLast    bool   `json:"is_human_last"`
-	ProfileID      int64  `json:"profile_id"`
+	ProfileID      string `json:"profile_id"`
 }
 
 func (q *Queries) CreateSession(ctx context.Context, arg CreateSessionParams) (Session, error) {
@@ -551,7 +551,7 @@ RETURNING id, created_at, updated_at, deleted_at, browser_name, browser_version,
 `
 
 type UpdateSessionWithProfileIDParams struct {
-	ProfileID int64  `json:"profile_id"`
+	ProfileID string `json:"profile_id"`
 	ID        string `json:"id"`
 }
 

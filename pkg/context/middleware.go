@@ -37,13 +37,13 @@ func UseGateway(env hway.Hway, ipc common.IPFS, db *hwayorm.Queries) echo.Middle
 		return func(c echo.Context) error {
 			ua := useragent.NewParser()
 			ctx := &GatewayContext{
-				Context:          c,
-				Querier:          db,
-				ipfsClient:       ipc,
-				agent:            ua.Parse(c.Request().UserAgent()),
-				grpcAddr:         env.GetSonrGrpcUrl(),
-				tokenStore:       common.NewUCANStore(ipc),
-				turnstileSiteKey: env.GetTurnstileSiteKey(),
+				Context:    c,
+				Querier:    db,
+				ipfsClient: ipc,
+				agent:      ua.Parse(c.Request().UserAgent()),
+				grpcAddr:   env.GetSonrGrpcUrl(),
+				tokenStore: common.NewUCANStore(ipc),
+				// turnstileSiteKey: env.GetTurnstileSiteKey(),
 			}
 			return next(ctx)
 		}

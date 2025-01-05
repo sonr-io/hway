@@ -81,7 +81,7 @@ type Session struct {
 	Challenge      string       `json:"challenge"`
 	IsHumanFirst   bool         `json:"is_human_first"`
 	IsHumanLast    bool         `json:"is_human_last"`
-	ProfileID      int64        `json:"profile_id"`
+	ProfileID      string       `json:"profile_id"`
 }
 
 type Vault struct {

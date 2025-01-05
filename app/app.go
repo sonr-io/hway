@@ -8,7 +8,7 @@ import (
 	config "github.com/onsonr/hway/config"
 	hwayorm "github.com/onsonr/hway/internal/models"
 	"github.com/onsonr/hway/pkg/common"
-	"github.com/onsonr/hway/pkg/context"
+	// "github.com/onsonr/hway/pkg/context"
 )
 
 type Gateway = *echo.Echo
