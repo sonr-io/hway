@@ -4,10 +4,10 @@ import (
 	"encoding/json"
 
 	"github.com/labstack/echo/v4"
-	"github.com/onsonr/hway/gateway/islands"
-	"github.com/onsonr/hway/gateway/views"
-	"github.com/onsonr/hway/internal/common"
-	hwayorm "github.com/onsonr/hway/internal/database/hwayorm"
+	"github.com/onsonr/hway/pkg/islands"
+	"github.com/onsonr/hway/pkg/views"
+	"github.com/onsonr/hway/pkg/common"
+	hwayorm "github.com/onsonr/hway/internal/models"
 	"github.com/onsonr/hway/pkg/context"
 )
 

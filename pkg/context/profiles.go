@@ -4,7 +4,7 @@ import (
 	"net/http"
 
 	"github.com/labstack/echo/v4"
-	hwayorm "github.com/onsonr/hway/internal/database/hwayorm"
+	hwayorm "github.com/onsonr/hway/internal/models"
 )
 
 func UpdateProfile(c echo.Context) (*hwayorm.Profile, error) {

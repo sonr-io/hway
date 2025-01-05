@@ -5,7 +5,7 @@ import (
 
 	"github.com/a-h/templ"
 	"github.com/labstack/echo/v4"
-	"github.com/onsonr/hway/gateway/views"
+	"github.com/onsonr/hway/pkg/views"
 )
 
 func Render(c echo.Context, cmp templ.Component) error {

@@ -4,7 +4,7 @@ import (
 	"github.com/go-webauthn/webauthn/protocol"
 	"github.com/labstack/echo/v4"
 	"github.com/medama-io/go-useragent"
-	hwayorm "github.com/onsonr/hway/internal/database/hwayorm"
+	hwayorm "github.com/onsonr/hway/internal/models"
 )
 
 // Define the credential structure matching our frontend data

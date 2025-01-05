@@ -5,8 +5,7 @@ import (
 	"github.com/labstack/echo-contrib/echoprometheus"
 	"github.com/labstack/echo/v4"
 	echomiddleware "github.com/labstack/echo/v4/middleware"
-	"github.com/onsonr/hway/gateway/handlers"
-	config "github.com/onsonr/hway/internal/config"
+	config "github.com/onsonr/hway/config"
 	hwayorm "github.com/onsonr/hway/internal/models"
 	"github.com/onsonr/hway/pkg/common"
 	"github.com/onsonr/hway/pkg/context"
@@ -23,11 +22,11 @@ func New(env config.Hway, ipc common.IPFS, dbq *hwayorm.Queries) (Gateway, error
 	e.Use(echomiddleware.Recover())
 	e.IPExtractor = echo.ExtractIPDirect()
 	e.Use(echoprometheus.NewMiddleware("hway"))
-	e.Use(context.UseGateway(env, ipc, dbq))
+	// e.Use(context.UseGateway(env, ipc, dbq))
 
 	// Register View Handlers
-	e.HTTPErrorHandler = handlers.ErrorHandler
-	e.GET("/", handlers.IndexHandler)
-	handlers.RegisterHandler(e.Group("/register"))
+	// e.HTTPErrorHandler = handlers.ErrorHandler
+	// e.GET("/", handlers.IndexHandler)
+	// handlers.RegisterHandler(e.Group("/register"))
 	return e, nil
 }
