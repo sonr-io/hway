@@ -756,6 +756,8 @@ github.com/onsi/gomega v1.17.0/go.mod h1:HnhC7FXeEQY45zxNK3PPoIUhzk/80Xly9PcubAl
 github.com/onsi/gomega v1.19.0/go.mod h1:LY+I3pBVzYsTBU1AnDwOSxaYi9WoWiqgwooUqq9yPro=
 github.com/onsi/gomega v1.34.2 h1:pNCwDkzrsv7MS9kpaQvVb1aVLahQXyJ/Tv5oAZMI3i8=
 github.com/onsi/gomega v1.34.2/go.mod h1:v1xfxRgk0KIsG+QOdm7p8UosrOzPYRo60fd3B/1Dukc=
+github.com/onsonr/crypto v1.30.0 h1:1zSKy/zZR0r1iT7d6bwy6/EiiWKNIb7ZhdoRp1tLirU=
+github.com/onsonr/crypto v1.30.0/go.mod h1:NSfeCO6XoyQeSDEp6Jy42UGG5047GvzG6lW9lRnjrR0=
 github.com/onsonr/hway v0.6.1 h1:pNP2BbOfe/3UN/bZSYNyf9F+nlIpZaqi2LJ6Ol0496w=
 github.com/onsonr/hway v0.6.1/go.mod h1:L4ywLeJemlGD2pmlIX/j3eEKEgu5o/yzgFjkHNr7dAk=
 github.com/opencontainers/runtime-spec v1.2.0 h1:z97+pHb3uELt/yiAWD691HNHQIF07bE7dzrbT927iTk=
