@@ -9,7 +9,7 @@ require (
 	github.com/labstack/echo-contrib v0.17.2
 	github.com/labstack/echo/v4 v4.13.3
 	github.com/medama-io/go-useragent v1.0.1
-	github.com/onsonr/sonr v0.6.1
+	github.com/onsonr/hway v0.6.1
 	github.com/segmentio/ksuid v1.0.4
 	github.com/spf13/cobra v1.8.1
 	lukechampine.com/blake3 v1.3.0

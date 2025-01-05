@@ -4,11 +4,11 @@ import (
 	"encoding/json"
 
 	"github.com/labstack/echo/v4"
-	"github.com/onsonr/sonr/gateway/islands"
-	"github.com/onsonr/sonr/gateway/views"
-	"github.com/onsonr/sonr/gateway/context"
-	"github.com/onsonr/sonr/internal/common"
-	hwayorm "github.com/onsonr/sonr/internal/database/hwayorm"
+	"github.com/onsonr/hway/gateway/islands"
+	"github.com/onsonr/hway/gateway/views"
+	"github.com/onsonr/hway/internal/common"
+	hwayorm "github.com/onsonr/hway/internal/database/hwayorm"
+	"github.com/onsonr/hway/pkg/context"
 )
 
 func RegisterHandler(g *echo.Group) {

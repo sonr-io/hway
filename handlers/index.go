@@ -2,7 +2,7 @@ package handlers
 
 import (
 	"github.com/labstack/echo/v4"
-	"github.com/onsonr/sonr/gateway/context"
+	"github.com/onsonr/hway/pkg/context"
 )
 
 func IndexHandler(c echo.Context) error {

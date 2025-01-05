@@ -7,7 +7,7 @@ import (
 	"os"
 	"strings"
 
-	"github.com/onsonr/sonr/gateway"
+	"github.com/onsonr/hway/gateway"
 	"github.com/spf13/cobra"
 )
 

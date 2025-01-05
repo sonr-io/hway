@@ -5,11 +5,11 @@ import (
 	"github.com/labstack/echo-contrib/echoprometheus"
 	"github.com/labstack/echo/v4"
 	echomiddleware "github.com/labstack/echo/v4/middleware"
-	"github.com/onsonr/sonr/gateway/context"
-	"github.com/onsonr/sonr/gateway/handlers"
-	"github.com/onsonr/sonr/internal/common"
-	config "github.com/onsonr/sonr/internal/config/hway"
-	hwayorm "github.com/onsonr/sonr/internal/database/hwayorm"
+	"github.com/onsonr/hway/gateway/handlers"
+	config "github.com/onsonr/hway/internal/config/hway"
+	hwayorm "github.com/onsonr/hway/internal/models"
+	"github.com/onsonr/hway/pkg/common"
+	"github.com/onsonr/hway/pkg/context"
 )
 
 type Gateway = *echo.Echo

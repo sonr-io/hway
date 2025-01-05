@@ -113,7 +113,7 @@ func HeroSocials() templ.Component {
 			templ_7745c5c3_Var5 = templ.NopComponent
 		}
 		ctx = templ.ClearChildren(ctx)
-		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("<div class=\"pt-1.5 flex flex-row items-center justify-center h-full gap-3\"><sl-button circle outline href=\"https://sonr.io\"><sl-icon name=\"home\" library=\"sonr\" label=\"Home\"></sl-icon></sl-button> <sl-button circle outline href=\"https://onsonr.dev\"><sl-icon name=\"docs\" library=\"sonr\" label=\"Docs\"></sl-icon></sl-button> <sl-button circle outline href=\"https://github.com/onsonr/sonr\"><sl-icon name=\"social-github\" library=\"sonr\" label=\"Open Source\"></sl-icon></sl-button></div>")
+		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("<div class=\"pt-1.5 flex flex-row items-center justify-center h-full gap-3\"><sl-button circle outline href=\"https://sonr.io\"><sl-icon name=\"home\" library=\"sonr\" label=\"Home\"></sl-icon></sl-button> <sl-button circle outline href=\"https://onsonr.dev\"><sl-icon name=\"docs\" library=\"sonr\" label=\"Docs\"></sl-icon></sl-button> <sl-button circle outline href=\"https://github.com/onsonr/hway\"><sl-icon name=\"social-github\" library=\"sonr\" label=\"Open Source\"></sl-icon></sl-button></div>")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}

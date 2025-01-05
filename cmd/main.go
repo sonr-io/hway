@@ -7,7 +7,7 @@ import (
 	"os"
 
 	"github.com/jackc/pgx/v5"
-	hwayorm "github.com/onsonr/sonr/internal/database/hwayorm"
+	hwayorm "github.com/onsonr/hway/internal/models"
 )
 
 // main is the entry point for the application

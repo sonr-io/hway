@@ -6,10 +6,10 @@ import (
 
 	"github.com/labstack/echo/v4"
 	"github.com/medama-io/go-useragent"
-	"github.com/onsonr/sonr/internal/crypto/mpc"
-	"github.com/onsonr/sonr/internal/common"
-	"github.com/onsonr/sonr/internal/config/hway"
-	hwayorm "github.com/onsonr/sonr/internal/database/hwayorm"
+	"github.com/onsonr/hway/internal/crypto/mpc"
+	"github.com/onsonr/hway/internal/common"
+	"github.com/onsonr/hway/internal/config/hway"
+	hwayorm "github.com/onsonr/hway/internal/database/hwayorm"
 )
 
 type GatewayContext struct {
