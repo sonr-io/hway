@@ -3,9 +3,9 @@ package common
 import (
 	bankv1beta1 "cosmossdk.io/api/cosmos/bank/v1beta1"
 	nodev1beta1 "github.com/cosmos/cosmos-sdk/client/grpc/node"
-	didv1 "github.com/onsonr/hway/api/did/v1"
-	dwnv1 "github.com/onsonr/hway/api/dwn/v1"
-	svcv1 "github.com/onsonr/hway/api/svc/v1"
+	didv1 "github.com/onsonr/sonr/api/did/v1"
+	dwnv1 "github.com/onsonr/sonr/api/dwn/v1"
+	svcv1 "github.com/onsonr/sonr/api/svc/v1"
 	"google.golang.org/grpc"
 )
 

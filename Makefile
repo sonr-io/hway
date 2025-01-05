@@ -6,12 +6,12 @@ BINDIR ?= $(GOPATH)/bin
 # for dockerized protobuf tools
 DOCKER := $(shell which docker)
 HTTPS_GIT := github.com/onsonr/hway.git
-
+export RELEASE_DATE="$(date +%Y).$(date +%V).$(date +%u)"
 
 all: install test
 
 build: go.sum
-	go build -o build/hway ./cmd
+	go build -o build/hway .
 
 install: go.sum
 	go install -mod=readonly ./cmd/hway

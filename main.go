@@ -1,13 +1,17 @@
 package main
 
 import (
+	"database/sql"
+	_ "embed"
 	"fmt"
 	"log"
 	"net/http"
 	"os"
-	"strings"
 
-	"github.com/onsonr/hway/gateway"
+	"github.com/onsonr/hway/app"
+	"github.com/onsonr/hway/internal/config"
+	hwayorm "github.com/onsonr/hway/internal/models"
+	"github.com/onsonr/hway/pkg/common"
 	"github.com/spf13/cobra"
 )
 
@@ -27,6 +31,16 @@ var (
 	psqlDB   string // PostgresSQL Database Flag
 )
 
+// main is the entry point for the application
+func main() {
+	cmd := rootCmd()
+	if err := cmd.Execute(); err != nil {
+		fmt.Println(err)
+		os.Exit(1)
+	}
+	os.Exit(0)
+}
+
 func rootCmd() *cobra.Command {
 	cmd := &cobra.Command{
 		Use:   "hway",
@@ -40,11 +54,11 @@ func rootCmd() *cobra.Command {
 			if err != nil {
 				panic(err)
 			}
-			dbq, err := setupPostgresDB()
+			dbq, err := setupSQLiteDB()
 			if err != nil {
 				panic(err)
 			}
-			e, err := gateway.New(env, ipc, dbq)
+			e, err := app.New(env, ipc, dbq)
 			if err != nil {
 				panic(err)
 			}
@@ -69,24 +83,27 @@ func rootCmd() *cobra.Command {
 	return cmd
 }
 
-func formatPsqlDSN() string {
-	if psqlHost == "" {
-		return ""
+func loadEnvImplFromArgs(args []string) (config.Hway, error) {
+	cmd := rootCmd()
+	if err := cmd.ParseFlags(args); err != nil {
+		return nil, err
 	}
 
-	host := psqlHost
-	port := "5432"
-
-	if parts := strings.Split(psqlHost, ":"); len(parts) == 2 {
-		host = parts[0]
-		port = parts[1]
+	env := &config.HwayImpl{
+		ServePort:      servePort,
+		ChainId:        chainID,
+		IpfsGatewayUrl: ipfsGatewayURL,
+		SonrApiUrl:     sonrAPIURL,
+		SonrGrpcUrl:    sonrGrpcURL,
+		SonrRpcUrl:     sonrRPCURL,
 	}
+	return env, nil
+}
 
-	dsn := fmt.Sprintf("host=%s port=%s user=%s password=%s dbname=%s sslmode=verify-full",
-		host, port, psqlUser, psqlPass, psqlDB)
-
-	log.Printf("Attempting to connect to PostgreSQL with DSN: host=%s port=%s user=%s dbname=%s",
-		host, port, psqlUser, psqlDB) // Don't log the password
-
-	return dsn
+func setupSQLiteDB() (*hwayorm.Queries, error) {
+	conn, err := sql.Open("sqlite3", ":memory:")
+	if err != nil {
+		return nil, err
+	}
+	return hwayorm.New(conn), nil
 }

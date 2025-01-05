@@ -1,12 +1,12 @@
 // Package gateway provides the default routes for the Sonr hway.
-package gateway
+package app
 
 import (
 	"github.com/labstack/echo-contrib/echoprometheus"
 	"github.com/labstack/echo/v4"
 	echomiddleware "github.com/labstack/echo/v4/middleware"
 	"github.com/onsonr/hway/gateway/handlers"
-	config "github.com/onsonr/hway/internal/config/hway"
+	config "github.com/onsonr/hway/internal/config"
 	hwayorm "github.com/onsonr/hway/internal/models"
 	"github.com/onsonr/hway/pkg/common"
 	"github.com/onsonr/hway/pkg/context"
