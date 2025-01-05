@@ -16,8 +16,6 @@ builds:
     flags:
       - -mod=readonly
       - -trimpath
-    goamd64:
-      - v1
     ldflags:
       - -X main.version={{.Version}}
       - -X main.commit={{.Commit}}

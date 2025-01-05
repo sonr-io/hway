@@ -1,0 +1,12 @@
+{
+  "project_name": "sonr",
+  "tag": "v0.0.0",
+  "previous_tag": "",
+  "version": "0.0.0-SNAPSHOT-21ff6cb",
+  "commit": "21ff6cbf305410a6059e489c369c268fa6cb2b1d",
+  "date": "2025-01-04T21:15:36.339986-05:00",
+  "runtime": {
+    "goos": "darwin",
+    "goarch": "arm64"
+  }
+}
