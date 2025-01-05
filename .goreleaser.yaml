@@ -86,6 +86,13 @@ release:
   extra_files:
     - glob: ./README*
 
+dockers:
+  - image_templates:
+      - onsonr/hway:{{ .Tag }}
+      - onsonr/hway:latest
+      - ghcr.io/onsonr/hway:{{ .Tag }}
+      - ghcr.io/onsonr/hway:latest
+
 announce:
   telegram:
     enabled: true
