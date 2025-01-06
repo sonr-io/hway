@@ -5,9 +5,9 @@ import (
 	"github.com/labstack/echo-contrib/echoprometheus"
 	"github.com/labstack/echo/v4"
 	echomiddleware "github.com/labstack/echo/v4/middleware"
+	"github.com/onsonr/hway/app/common"
 	config "github.com/onsonr/hway/config"
-	hwayorm "github.com/onsonr/hway/internal/models"
-	"github.com/onsonr/hway/pkg/common"
+	hwayorm "github.com/onsonr/hway/models"
 	// "github.com/onsonr/hway/pkg/context"
 )
 

@@ -1,0 +1,23 @@
+# https://taskfile.dev
+
+version: "3"
+
+tasks:
+  build:
+    cmds:
+      - go build -o ./bin/hway ./cmd/hway
+  sqlc-gen:
+    dir: internal
+    cmds:
+      - sqlc generate
+    silent: true
+
+  templ-gen:
+    cmds:
+      - templ generate
+    silent: true
+
+  pkl-gen:
+    cmds:
+      - pkl-gen-go internal/pkl/App.pkl
+    silent: true

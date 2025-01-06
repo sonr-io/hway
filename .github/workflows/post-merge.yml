@@ -1,0 +1,33 @@
+name: Post Merge
+on:
+  pull_request:
+    types: [closed]
+
+permissions:
+  contents: write
+  issues: write
+
+jobs:
+  bump-version:
+    name: Version Bump
+    if: |
+      github.event.pull_request.merged == true && 
+      github.event.pull_request.user.login != 'dependabot[bot]' &&
+      github.event.pull_request.user.login != 'dependabot-preview[bot]'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          ssh-key: "${{ secrets.COMMIT_KEY }}"
+
+      - name: Create bump and changelog
+        uses: commitizen-tools/commitizen-action@master
+        with:
+          push: false
+          increment: patch
+
+      - name: Push using ssh
+        run: |
+          git push origin main --tags

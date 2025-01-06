@@ -8,4 +8,4 @@ sql:
         emit_interface: true
         emit_json_tags: true
         package: "models"
-        out: "models"
+        out: "../models"

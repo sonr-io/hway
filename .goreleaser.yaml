@@ -2,6 +2,11 @@
 version: 2
 project_name: sonr
 
+hooks:
+  before:
+    - export RELEASE_DATE="$(date +%Y).$(date +%V).$(date +%u)"
+    - echo "Release date is $RELEASE_DATE"
+
 builds:
   - id: hway
     main: ./cmd
@@ -77,7 +82,7 @@ release:
   github:
     owner: onsonr
     name: sonr
-  name_template: '{{ .Tag }} | {{ .Env.RELEASE_DATE }}'
+  name_template: "{{ .Tag }} | {{ .Env.RELEASE_DATE }}"
   draft: false
   replace_existing_draft: true
   replace_existing_artifacts: true
