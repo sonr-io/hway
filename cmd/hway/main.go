@@ -9,9 +9,9 @@ import (
 	"os"
 
 	"github.com/onsonr/hway/app"
-	"github.com/onsonr/hway/app/common"
-	"github.com/onsonr/hway/config"
-	hwayorm "github.com/onsonr/hway/models"
+	"github.com/onsonr/hway/pkg/common"
+	"github.com/onsonr/hway/pkg/config"
+	hwayorm "github.com/onsonr/hway/pkg/models"
 	"github.com/spf13/cobra"
 )
 

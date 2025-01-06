@@ -3,7 +3,7 @@ package context
 import (
 	"fmt"
 
-	"github.com/onsonr/hway/app/common"
+	"github.com/onsonr/hway/pkg/common"
 )
 
 // ParamsBank returns the bank params

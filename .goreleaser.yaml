@@ -90,7 +90,7 @@ dockers:
       - onsonr/hway:latest
       - ghcr.io/onsonr/hway:{{ .Tag }}
       - ghcr.io/onsonr/hway:latest
-    dockerfile: ./docker/Dockerfile
+    dockerfile: ./docker/release.Dockerfile
 
 announce:
   telegram:
