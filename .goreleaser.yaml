@@ -1,11 +1,6 @@
 # yaml-language-server: $schema=https://goreleaser.com/static/schema-pro.json
 version: 2
-project_name: sonr
-
-hooks:
-  before:
-    - export RELEASE_DATE="$(date +%Y).$(date +%V).$(date +%u)"
-    - echo "Release date is $RELEASE_DATE"
+project_name: hway
 
 builds:
   - id: hway
@@ -95,6 +90,7 @@ dockers:
       - onsonr/hway:latest
       - ghcr.io/onsonr/hway:{{ .Tag }}
       - ghcr.io/onsonr/hway:latest
+    dockerfile: ./docker/Dockerfile
 
 announce:
   telegram:
