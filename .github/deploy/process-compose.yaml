@@ -1,23 +1,28 @@
 version: "0.5"
 
 processes:
-  IPFS:
-    namespace: testnet
-    command: "ipfs daemon --mount"
-    ready_log_line: "Daemon is ready"
+  Tigerbeetle:
+    namespace: sonr-gateway
+    command: "tigerbeetle"
+    ready_log_line: "Tigerbeetle is ready"
 
-  Sonr:
+  Postgres:
     namespace: testnet
-    command: "task sonrd:start"
-    depends_on:
-      IPFS:
-        condition: process_log_ready
+    command: "postgres"
+    ready_log_line: "database system is ready to accept connections"
 
   Hway:
-    namespace: testnet
+    namespace: sonr-gateway
     command: "hway"
     depends_on:
       IPFS:
         condition: process_log_ready
       Sonr:
+        condition: process_started
+
+  Cloudflare:
+    namespace: sonr-gateway
+    command: "cloudflared tunnel route"
+    depends_on:
+      Hway:
         condition: process_started

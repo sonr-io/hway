@@ -38,7 +38,7 @@ func HumanSlider(firstNumber int, lastNumber int) templ.Component {
 		var templ_7745c5c3_Var2 string
 		templ_7745c5c3_Var2, templ_7745c5c3_Err = templ.JoinStringErrs(humanLabel(firstNumber, lastNumber))
 		if templ_7745c5c3_Err != nil {
-			return templ.Error{Err: templ_7745c5c3_Err, FileName: `app/islands/human_slider.templ`, Line: 7, Col: 71}
+			return templ.Error{Err: templ_7745c5c3_Err, FileName: `x/register/islands/human_slider.templ`, Line: 7, Col: 71}
 		}
 		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var2))
 		if templ_7745c5c3_Err != nil {
@@ -80,7 +80,7 @@ func HumanSliderError(firstNumber int, lastNumber int) templ.Component {
 		var templ_7745c5c3_Var4 string
 		templ_7745c5c3_Var4, templ_7745c5c3_Err = templ.JoinStringErrs(humanLabel(firstNumber, lastNumber))
 		if templ_7745c5c3_Err != nil {
-			return templ.Error{Err: templ_7745c5c3_Err, FileName: `app/islands/human_slider.templ`, Line: 12, Col: 70}
+			return templ.Error{Err: templ_7745c5c3_Err, FileName: `x/register/islands/human_slider.templ`, Line: 12, Col: 70}
 		}
 		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var4))
 		if templ_7745c5c3_Err != nil {

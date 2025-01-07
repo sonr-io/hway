@@ -1,8 +1,8 @@
 package context
 
 import (
-	"github.com/onsonr/crypto/mpc"
 	"github.com/onsonr/hway/pkg/common"
+	"github.com/onsonr/sonr/crypto/mpc"
 	"lukechampine.com/blake3"
 )
 

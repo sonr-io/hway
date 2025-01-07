@@ -15,8 +15,7 @@ require (
 	github.com/labstack/echo-contrib v0.17.2
 	github.com/labstack/echo/v4 v4.13.3
 	github.com/medama-io/go-useragent v1.0.1
-	github.com/onsonr/crypto v1.50.0
-	github.com/onsonr/sonr v0.6.1
+	github.com/onsonr/sonr v0.6.3
 	github.com/segmentio/ksuid v1.0.4
 	github.com/spf13/cobra v1.8.1
 	google.golang.org/grpc v1.69.2
@@ -189,7 +188,7 @@ require (
 	github.com/munnerz/goautoneg v0.0.0-20191010083416-a7dc8b61c822 // indirect
 	github.com/oasisprotocol/curve25519-voi v0.0.0-20230904125328-1f23a7beb09a // indirect
 	github.com/onsi/ginkgo/v2 v2.22.0 // indirect
-	github.com/onsonr/nebula v0.1.1 // indirect
+	github.com/onsonr/nebula v0.1.2 // indirect
 	github.com/opentracing/opentracing-go v1.2.0 // indirect
 	github.com/pbnjay/memory v0.0.0-20210728143218-7b4eea64cf58 // indirect
 	github.com/pelletier/go-toml/v2 v2.2.2 // indirect

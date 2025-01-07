@@ -8,8 +8,8 @@ import (
 
 	"github.com/golang-jwt/jwt"
 	"github.com/ipfs/go-cid"
-	"github.com/onsonr/crypto/keys"
-	"github.com/onsonr/crypto/ucan"
+	"github.com/onsonr/sonr/crypto/keys"
+	"github.com/onsonr/sonr/crypto/ucan"
 )
 
 type IPFSTokenStore interface {

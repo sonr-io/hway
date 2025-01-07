@@ -8,9 +8,19 @@ package islands
 import "github.com/a-h/templ"
 import templruntime "github.com/a-h/templ/runtime"
 
-import "fmt"
+type HandleState string
 
-func HumanSlider(firstNumber int, lastNumber int) templ.Component {
+const (
+	HandleStateInitial HandleState = "inital"
+	HandleStateValid   HandleState = "valid"
+	HandleStateInvalid HandleState = "invalid"
+)
+
+func (s HandleState) string() string {
+	return string(s)
+}
+
+func InputHandle() templ.Component {
 	return templruntime.GeneratedTemplate(func(templ_7745c5c3_Input templruntime.GeneratedComponentInput) (templ_7745c5c3_Err error) {
 		templ_7745c5c3_W, ctx := templ_7745c5c3_Input.Writer, templ_7745c5c3_Input.Context
 		if templ_7745c5c3_CtxErr := ctx.Err(); templ_7745c5c3_CtxErr != nil {
@@ -31,20 +41,7 @@ func HumanSlider(firstNumber int, lastNumber int) templ.Component {
 			templ_7745c5c3_Var1 = templ.NopComponent
 		}
 		ctx = templ.ClearChildren(ctx)
-		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 1, "<div hx-target=\"this\" hx-swap=\"outerHTML\"><sl-range name=\"is_human\" label=\"")
-		if templ_7745c5c3_Err != nil {
-			return templ_7745c5c3_Err
-		}
-		var templ_7745c5c3_Var2 string
-		templ_7745c5c3_Var2, templ_7745c5c3_Err = templ.JoinStringErrs(humanLabel(firstNumber, lastNumber))
-		if templ_7745c5c3_Err != nil {
-			return templ.Error{Err: templ_7745c5c3_Err, FileName: `app/islands/human_slider.templ`, Line: 7, Col: 71}
-		}
-		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var2))
-		if templ_7745c5c3_Err != nil {
-			return templ_7745c5c3_Err
-		}
-		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 2, "\" help-text=\"Prove you are a human.\" min=\"0\" max=\"9\" step=\"1\" hx-post=\"/register/profile/is_human\"></sl-range></div>")
+		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 1, "<div hx-target=\"this\" hx-swap=\"outerHTML\"><sl-input name=\"handle\" placeholder=\"digitalgold\" type=\"text\" label=\"Handle\" minlength=\"4\" maxlength=\"12\" required hx-post=\"/register/profile\" hx-indicator=\"#handle-indicator\" autofocus><div slot=\"prefix\"><sl-icon name=\"at-sign\" library=\"sonr\"></sl-icon></div></sl-input></div><br>")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
@@ -52,7 +49,7 @@ func HumanSlider(firstNumber int, lastNumber int) templ.Component {
 	})
 }
 
-func HumanSliderError(firstNumber int, lastNumber int) templ.Component {
+func InputHandleError(value string, helpText string) templ.Component {
 	return templruntime.GeneratedTemplate(func(templ_7745c5c3_Input templruntime.GeneratedComponentInput) (templ_7745c5c3_Err error) {
 		templ_7745c5c3_W, ctx := templ_7745c5c3_Input.Writer, templ_7745c5c3_Input.Context
 		if templ_7745c5c3_CtxErr := ctx.Err(); templ_7745c5c3_CtxErr != nil {
@@ -68,25 +65,38 @@ func HumanSliderError(firstNumber int, lastNumber int) templ.Component {
 			}()
 		}
 		ctx = templ.InitializeContext(ctx)
-		templ_7745c5c3_Var3 := templ.GetChildren(ctx)
-		if templ_7745c5c3_Var3 == nil {
-			templ_7745c5c3_Var3 = templ.NopComponent
+		templ_7745c5c3_Var2 := templ.GetChildren(ctx)
+		if templ_7745c5c3_Var2 == nil {
+			templ_7745c5c3_Var2 = templ.NopComponent
 		}
 		ctx = templ.ClearChildren(ctx)
-		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 3, "<sl-range name=\"is_human\" label=\"")
+		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 2, "<sl-input name=\"handle\" placeholder=\"digitalgold\" type=\"text\" label=\"Handle\" minlength=\"4\" maxlength=\"12\" required class=\"border-red-500\" value=\"")
+		if templ_7745c5c3_Err != nil {
+			return templ_7745c5c3_Err
+		}
+		var templ_7745c5c3_Var3 string
+		templ_7745c5c3_Var3, templ_7745c5c3_Err = templ.JoinStringErrs(value)
+		if templ_7745c5c3_Err != nil {
+			return templ.Error{Err: templ_7745c5c3_Err, FileName: `x/register/islands/input_handle.templ`, Line: 27, Col: 152}
+		}
+		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var3))
+		if templ_7745c5c3_Err != nil {
+			return templ_7745c5c3_Err
+		}
+		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 3, "\" help-text=\"")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
 		var templ_7745c5c3_Var4 string
-		templ_7745c5c3_Var4, templ_7745c5c3_Err = templ.JoinStringErrs(humanLabel(firstNumber, lastNumber))
+		templ_7745c5c3_Var4, templ_7745c5c3_Err = templ.JoinStringErrs(helpText)
 		if templ_7745c5c3_Err != nil {
-			return templ.Error{Err: templ_7745c5c3_Err, FileName: `app/islands/human_slider.templ`, Line: 12, Col: 70}
+			return templ.Error{Err: templ_7745c5c3_Err, FileName: `x/register/islands/input_handle.templ`, Line: 27, Col: 175}
 		}
 		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var4))
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
-		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 4, "\" help-text=\"Prove you are a human.\" min=\"0\" max=\"9\" step=\"1\"></sl-range><div slot=\"help-text\"><sl-icon name=\"x-lg\" library=\"sonr\"></sl-icon> Invalid Human Sum</div>")
+		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 4, "\"><div slot=\"prefix\"><sl-icon name=\"at-sign\" library=\"sonr\"></sl-icon></div><div slot=\"suffix\" style=\"color: #B54549;\"><sl-icon name=\"x\"></sl-icon></div></sl-input><br>")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
@@ -94,7 +104,7 @@ func HumanSliderError(firstNumber int, lastNumber int) templ.Component {
 	})
 }
 
-func HumanSliderSuccess() templ.Component {
+func InputHandleSuccess(value string) templ.Component {
 	return templruntime.GeneratedTemplate(func(templ_7745c5c3_Input templruntime.GeneratedComponentInput) (templ_7745c5c3_Err error) {
 		templ_7745c5c3_W, ctx := templ_7745c5c3_Input.Writer, templ_7745c5c3_Input.Context
 		if templ_7745c5c3_CtxErr := ctx.Err(); templ_7745c5c3_CtxErr != nil {
@@ -115,16 +125,25 @@ func HumanSliderSuccess() templ.Component {
 			templ_7745c5c3_Var5 = templ.NopComponent
 		}
 		ctx = templ.ClearChildren(ctx)
-		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 5, "<sl-range name=\"is_human\" label=\"Success! Welcome Human.\" help-text=\"Prove you are a human.\" min=\"0\" max=\"9\" step=\"1\" value=\"9\" disabled></sl-range>")
+		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 5, "<sl-input name=\"handle\" placeholder=\"digitalgold\" type=\"text\" label=\"Handle\" minlength=\"4\" maxlength=\"12\" required class=\"border-green-500\" value=\"")
+		if templ_7745c5c3_Err != nil {
+			return templ_7745c5c3_Err
+		}
+		var templ_7745c5c3_Var6 string
+		templ_7745c5c3_Var6, templ_7745c5c3_Err = templ.JoinStringErrs(value)
+		if templ_7745c5c3_Err != nil {
+			return templ.Error{Err: templ_7745c5c3_Err, FileName: `x/register/islands/input_handle.templ`, Line: 39, Col: 154}
+		}
+		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var6))
+		if templ_7745c5c3_Err != nil {
+			return templ_7745c5c3_Err
+		}
+		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 6, "\" disabled><div slot=\"prefix\" style=\"color: #46A758;\"><sl-icon name=\"at-sign\" library=\"sonr\"></sl-icon></div></sl-input><br>")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
 		return nil
 	})
-}
-
-func humanLabel(firstNumber int, lastNumber int) string {
-	return fmt.Sprintf("What is %d + %d?", firstNumber, lastNumber)
 }
 
 var _ = templruntime.GeneratedTemplate
