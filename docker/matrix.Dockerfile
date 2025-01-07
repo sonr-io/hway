@@ -1,5 +1,3 @@
-
-
 # For goreleaser
 FROM scratch
 ENTRYPOINT ["/hway"]

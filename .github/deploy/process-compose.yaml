@@ -1,28 +1,6 @@
 version: "0.5"
 
 processes:
-  Tigerbeetle:
-    namespace: sonr-gateway
-    command: "tigerbeetle"
-    ready_log_line: "Tigerbeetle is ready"
-
-  Postgres:
-    namespace: testnet
-    command: "postgres"
-    ready_log_line: "database system is ready to accept connections"
-
   Hway:
-    namespace: sonr-gateway
+    namespace: hway-gateway
     command: "hway"
-    depends_on:
-      IPFS:
-        condition: process_log_ready
-      Sonr:
-        condition: process_started
-
-  Cloudflare:
-    namespace: sonr-gateway
-    command: "cloudflared tunnel route"
-    depends_on:
-      Hway:
-        condition: process_started
