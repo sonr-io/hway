@@ -1,0 +1,19 @@
+package views
+
+import (
+	"github.com/onsonr/nebula/ui/hero"
+	"github.com/onsonr/nebula/ui/layout"
+)
+
+templ ErrorView(err string) {
+	@layout.Root("Error | Sonr.ID") {
+		@layout.Container() {
+			@hero.Title("Uh oh!", "Something went wrong.")
+			<div class="pt-3 flex flex-col items-center justify-center h-full">
+				<p class="text-red-500">
+					{ err }
+				</p>
+			</div>
+		}
+	}
+}

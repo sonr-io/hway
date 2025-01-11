@@ -15,6 +15,7 @@ require (
 	github.com/labstack/echo-contrib v0.17.2
 	github.com/labstack/echo/v4 v4.13.3
 	github.com/medama-io/go-useragent v1.0.1
+	github.com/onsonr/nebula v0.1.3
 	github.com/onsonr/sonr v0.6.3
 	github.com/segmentio/ksuid v1.0.4
 	github.com/spf13/cobra v1.8.1

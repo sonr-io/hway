@@ -1,0 +1,54 @@
+package views
+
+import (
+	"github.com/onsonr/nebula/ui/card"
+	"github.com/onsonr/nebula/ui/form"
+	"github.com/onsonr/nebula/ui/hero"
+	"github.com/onsonr/nebula/ui/input"
+	"github.com/onsonr/nebula/ui/layout"
+	"github.com/onsonr/nebula/ui/slider"
+)
+
+templ RegisterProfileView(firstNumber int, lastNumber int) {
+	@layout.Root("New Profile | Sonr.ID") {
+		@layout.Container() {
+			@hero.Title("Basic Info", "Tell us a little about yourself.")
+			@form.Root("/register/passkey", "create-profile") {
+				@form.Body() {
+					@form.Header() {
+						<div class="w-full py-2">
+							<sl-avatar shape="circle" size="large" src="https://avatars.githubusercontent.com/u/101929?v=4"></sl-avatar>
+						</div>
+					}
+					@input.HandleInitial()
+					@slider.HumanInitial(firstNumber, lastNumber)
+					@form.Footer() {
+						@form.Cancel()
+						@form.Submit("Next")
+					}
+				}
+			}
+		}
+	}
+}
+
+templ RegisterPasskeyView(address string, handle string, name string, challenge string, creationBlock string) {
+	@layout.Root("Register | Sonr.ID") {
+		@layout.Container() {
+			@hero.Title("Link a PassKey", "This will be used to login to your vault.")
+			@form.Root("/register/finish", "passkey-form") {
+				<input type="hidden" name="credential" id="credential-data" required/>
+				@form.Body() {
+					@form.Header() {
+						@card.CardAccount(address, name, handle, creationBlock)
+					}
+					@input.CoinSelect()
+					@form.Footer() {
+						@input.PasskeyInitial(address, handle, challenge)
+						@form.Cancel()
+					}
+				}
+			}
+		}
+	}
+}

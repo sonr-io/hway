@@ -4,7 +4,7 @@ project_name: hway
 
 builds:
   - id: hway
-    main: ./cmd
+    main: ./cmd/hway
     binary: hway
     goos:
       - linux
@@ -20,6 +20,7 @@ builds:
       - -X main.version={{.Version}}
       - -X main.commit={{.Commit}}
       - -X main.date={{.Date}}
+
 archives:
   - id: hway
     builds: [hway]
@@ -54,7 +55,7 @@ nfpms:
     bindir: /usr/bin
     section: net
     priority: optional
-    # Add these lines to match build config
+
 brews:
   - name: hway
     ids: [hway]
@@ -77,7 +78,7 @@ release:
   github:
     owner: onsonr
     name: sonr
-  name_template: "{{ .Tag }} | {{ .Env.RELEASE_DATE }}"
+  name_template: "{{ .Tag }}  [{{ .Env.RELEASE_DATE }}]"
   draft: false
   replace_existing_draft: true
   replace_existing_artifacts: true
@@ -90,7 +91,6 @@ dockers:
       - onsonr/hway:latest
       - ghcr.io/onsonr/hway:{{ .Tag }}
       - ghcr.io/onsonr/hway:latest
-    dockerfile: ./docker/release.Dockerfile
 
 announce:
   telegram:

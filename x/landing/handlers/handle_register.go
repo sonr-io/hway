@@ -4,11 +4,12 @@ import (
 	"encoding/json"
 
 	"github.com/labstack/echo/v4"
-	"github.com/onsonr/hway/app/islands"
-	"github.com/onsonr/hway/app/views"
 	"github.com/onsonr/hway/pkg/common"
 	"github.com/onsonr/hway/pkg/context"
+	"github.com/onsonr/nebula/ui/input"
+
 	hwayorm "github.com/onsonr/hway/pkg/models"
+	"github.com/onsonr/hway/x/landing/views"
 )
 
 func RegisterHandler(g *echo.Group) {
@@ -47,7 +48,7 @@ func renderPasskeyForm(c echo.Context) error {
 
 	params, err := cc.Spawn(handle, origin)
 	if err != nil {
-		return context.RenderError(c, err)
+		return context.Render(c, views.ErrorView(err.Error()))
 	}
 	return context.Render(c, views.RegisterPasskeyView(params.Address, params.Handle, params.Name, params.Challenge, params.CreationBlock))
 }
@@ -63,27 +64,27 @@ func renderVaultStatus(c echo.Context) error {
 func validateProfileForm(c echo.Context) error {
 	cc, err := context.GetGateway(c)
 	if err != nil {
-		return context.RenderError(c, err)
+		return context.Render(c, views.ErrorView(err.Error()))
 	}
 	handle := c.FormValue("handle")
 	if handle == "" {
-		return context.Render(c, islands.InputHandleError(handle, "Please enter a 4-16 character handle"))
+		return context.Render(c, input.HandleError(handle, "Please enter a 4-16 character handle"))
 	}
 	notok, err := cc.CheckHandleExists(context.BG(), handle)
 	if err != nil {
 		return err
 	}
 	if notok {
-		return context.Render(c, islands.InputHandleError(handle, "Handle is already taken"))
+		return context.Render(c, input.HandleError(handle, "Handle is already taken"))
 	}
 	cc.WriteCookie(common.UserHandle, handle)
-	return context.Render(c, islands.InputHandleSuccess(handle))
+	return context.Render(c, input.HandleSuccess(handle))
 }
 
 func validatePasskeyForm(c echo.Context) error {
 	cc, err := context.GetGateway(c)
 	if err != nil {
-		return context.RenderError(c, err)
+		return context.Render(c, views.ErrorView(err.Error()))
 	}
 	handle := context.GetProfileHandle(c)
 	origin := c.Request().Host
@@ -93,7 +94,7 @@ func validatePasskeyForm(c echo.Context) error {
 	// Unmarshal the credential JSON
 	err = json.Unmarshal([]byte(credentialJSON), cred)
 	if err != nil {
-		return context.RenderError(c, err)
+		return context.Render(c, views.ErrorView(err.Error()))
 	}
 
 	md := cred.ToModel(handle, origin)
@@ -105,7 +106,7 @@ func validatePasskeyForm(c echo.Context) error {
 		Transports:   md.Transports,
 	})
 	if err != nil {
-		return context.RenderError(c, err)
+		return context.Render(c, views.ErrorView(err.Error()))
 	}
 	return context.Render(c, views.LoadingView())
 }

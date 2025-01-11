@@ -1,4 +1,3 @@
-// Package gateway provides the default routes for the Sonr hway.
 package app
 
 import (
@@ -7,8 +6,9 @@ import (
 	echomiddleware "github.com/labstack/echo/v4/middleware"
 	"github.com/onsonr/hway/pkg/common"
 	config "github.com/onsonr/hway/pkg/config"
+	"github.com/onsonr/hway/pkg/context"
 	hwayorm "github.com/onsonr/hway/pkg/models"
-	// "github.com/onsonr/hway/pkg/context"
+	"github.com/onsonr/hway/x/landing"
 )
 
 type Gateway = *echo.Echo
@@ -22,11 +22,11 @@ func New(env config.Hway, ipc common.IPFS, dbq *hwayorm.Queries) (Gateway, error
 	e.Use(echomiddleware.Recover())
 	e.IPExtractor = echo.ExtractIPDirect()
 	e.Use(echoprometheus.NewMiddleware("hway"))
-	// e.Use(context.UseGateway(env, ipc, dbq))
 
-	// Register View Handlers
-	// e.HTTPErrorHandler = handlers.ErrorHandler
-	// e.GET("/", handlers.IndexHandler)
-	// handlers.RegisterHandler(e.Group("/register"))
+	// Use the gateway middleware
+	e.Use(context.UseGateway(env, ipc, dbq))
+
+	// Add Module Routes
+	landing.RegisterRoutes(e)
 	return e, nil
 }
