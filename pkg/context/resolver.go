@@ -1,8 +1,6 @@
 package context
 
 import (
-	"fmt"
-
 	"github.com/onsonr/hway/pkg/common"
 )
 
@@ -58,31 +56,31 @@ func (cc *GatewayContext) ParamsSVC() (*common.SVCParamsResponse, error) {
 	return resp, nil
 }
 
-// StatusBlock returns the current block
-func (cc *GatewayContext) StatusBlock() string {
-	qc, err := common.NewNodeClient(cc.grpcAddr)
-	if err != nil {
-		return "-1"
-	}
-	resp, err := qc.Status(bgCtx(), &common.StatusRequest{})
-	if err != nil {
-		return "-1"
-	}
-	return fmt.Sprintf("%d", resp.GetHeight())
-}
-
-// StatusNode returns the node status
-func (cc *GatewayContext) StatusNode() (*common.StatusResponse, error) {
-	cl, err := common.NewNodeClient(cc.grpcAddr)
-	if err != nil {
-		return nil, err
-	}
-	resp, err := cl.Status(bgCtx(), &common.StatusRequest{})
-	if err != nil {
-		return nil, err
-	}
-	return resp, nil
-}
+// // StatusBlock returns the current block
+// func (cc *GatewayContext) StatusBlock() string {
+// 	qc, err := common.NewNodeClient(cc.grpcAddr)
+// 	if err != nil {
+// 		return "-1"
+// 	}
+// 	resp, err := qc.Status(bgCtx(), &common.StatusRequest{})
+// 	if err != nil {
+// 		return "-1"
+// 	}
+// 	return fmt.Sprintf("%d", resp.GetHeight())
+// }
+//
+// // StatusNode returns the node status
+// func (cc *GatewayContext) StatusNode() (*common.StatusResponse, error) {
+// 	cl, err := common.NewNodeClient(cc.grpcAddr)
+// 	if err != nil {
+// 		return nil, err
+// 	}
+// 	resp, err := cl.Status(bgCtx(), &common.StatusRequest{})
+// 	if err != nil {
+// 		return nil, err
+// 	}
+// 	return resp, nil
+// }
 
 // TxBroadcast broadcasts a transaction to the network
 func (cc *GatewayContext) TxBroadcast() error {

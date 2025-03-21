@@ -4,12 +4,12 @@ import (
 	gocontext "context"
 	"net/http"
 
+	"git.sonr.io/pkg/crypto/mpc"
 	"github.com/labstack/echo/v4"
 	"github.com/medama-io/go-useragent"
 	"github.com/onsonr/hway/pkg/common"
 	hway "github.com/onsonr/hway/pkg/config"
 	hwayorm "github.com/onsonr/hway/pkg/models"
-	"github.com/onsonr/sonr/crypto/mpc"
 )
 
 type GatewayContext struct {

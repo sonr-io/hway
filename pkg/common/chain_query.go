@@ -2,7 +2,7 @@ package common
 
 import (
 	bankv1beta1 "cosmossdk.io/api/cosmos/bank/v1beta1"
-	nodev1beta1 "github.com/cosmos/cosmos-sdk/client/grpc/node"
+	// nodev1beta1 "github.com/cosmos/cosmos-sdk/client/grpc/node"
 	didv1 "github.com/onsonr/sonr/api/did/v1"
 	dwnv1 "github.com/onsonr/sonr/api/dwn/v1"
 	svcv1 "github.com/onsonr/sonr/api/svc/v1"
@@ -10,8 +10,8 @@ import (
 )
 
 type (
-	StatusResponse        = nodev1beta1.StatusResponse             // StatusResponse is the response type for the Service.Status RPC method.
-	StatusRequest         = nodev1beta1.StatusRequest              // StatusRequest is the request type for the Service.Status RPC method.
+	// StatusResponse        = nodev1beta1.StatusResponse             // StatusResponse is the response type for the Service.Status RPC method.
+	// StatusRequest         = nodev1beta1.StatusRequest              // StatusRequest is the request type for the Service.Status RPC method.
 	BalanceRequest        = bankv1beta1.QueryBalanceRequest        // BalanceRequest is the request type for the Bank.Balance RPC method.
 	BalanceResponse       = bankv1beta1.QueryBalanceResponse       // BalanceResponse is the response type for the Bank.Balance RPC method.
 	AllBalancesRequest    = bankv1beta1.QueryAllBalancesRequest    // AllBalancesRequest is the request type for the Bank.AllBalances RPC method.
@@ -63,13 +63,14 @@ func NewDWNClient(addr string) (dwnv1.QueryClient, error) {
 	return dwnv1.NewQueryClient(conn), nil
 }
 
-func NewNodeClient(addr string) (nodev1beta1.ServiceClient, error) {
-	conn, err := conn(addr)
-	if err != nil {
-		return nil, err
-	}
-	return nodev1beta1.NewServiceClient(conn), nil
-}
+//
+// func NewNodeClient(addr string) (nodev1beta1.ServiceClient, error) {
+// 	conn, err := conn(addr)
+// 	if err != nil {
+// 		return nil, err
+// 	}
+// 	return nodev1beta1.NewServiceClient(conn), nil
+// }
 
 func NewSVCClient(addr string) (svcv1.QueryClient, error) {
 	conn, err := conn(addr)

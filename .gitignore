@@ -11,6 +11,7 @@ dist
 CONVENTIONS.md
 .goreleaser.yaml
 Taskfile.yml
+dist
 
 # Binaries
 .task
@@ -122,3 +123,6 @@ interchaintest-downloader
 .haptic
 
 x/.DS_Store
+dist/config.yaml
+dist
+dist

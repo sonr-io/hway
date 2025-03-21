@@ -1,8 +1,8 @@
 package context
 
 import (
+	"git.sonr.io/pkg/crypto/mpc"
 	"github.com/onsonr/hway/pkg/common"
-	"github.com/onsonr/sonr/crypto/mpc"
 	"lukechampine.com/blake3"
 )
 
@@ -20,11 +20,10 @@ func (cc *GatewayContext) Spawn(handle, origin string) (*CreatePasskeyParams, er
 	cc.stagedEnclaves[sid] = encl
 	common.WriteCookie(cc, common.SonrAddress, encl.Address())
 	return &CreatePasskeyParams{
-		Address:       encl.Address(),
-		Handle:        handle,
-		Name:          origin,
-		Challenge:     challenge,
-		CreationBlock: cc.StatusBlock(),
+		Address:   encl.Address(),
+		Handle:    handle,
+		Name:      origin,
+		Challenge: challenge,
 	}, nil
 }
 
