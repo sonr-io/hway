@@ -121,3 +121,4 @@ deploy/conf
 interchaintest-downloader
 .haptic
 
+x/.DS_Store
