@@ -8,7 +8,6 @@ dist
 
 # Aider related generated files
 .aider-context
-CONVENTIONS.md
 .goreleaser.yaml
 Taskfile.yml
 dist
