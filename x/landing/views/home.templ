@@ -9,6 +9,39 @@ templ InitialView() {
 	@layout.Root("Sonr.ID") {
 		@layout.Container() {
 			@hero.Title("Sonr.ID", "The decentralized identity layer for the web.")
+			
+			<div class="py-4">
+				<h2 class="text-2xl font-bold mb-2">🔐 The Advantages of using PassKeys in your Startup</h2>
+				<p class="text-lg mb-4">We're creating the Global Standard for Decentralized Identity. Authenticate users with PassKeys, Issue Crypto Wallets, Build Payment flows, Send Encrypted Messages - all on a single platform.</p>
+			</div>
+			
+			<div class="my-6">
+				<h3 class="text-xl font-semibold mb-3">Technology</h3>
+				<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+					<div class="p-4 border rounded-lg">
+						<h4 class="font-bold">Self-Custody</h4>
+						<p class="text-sm">Decentralized Identity Primitives</p>
+					</div>
+					<div class="p-4 border rounded-lg">
+						<h4 class="font-bold">Universal</h4>
+						<p class="text-sm">Global P2P Network</p>
+					</div>
+					<div class="p-4 border rounded-lg">
+						<h4 class="font-bold">Compliance</h4>
+						<p class="text-sm">Encrypted Decentralized Storage</p>
+					</div>
+					<div class="p-4 border rounded-lg">
+						<h4 class="font-bold">Security</h4>
+						<p class="text-sm">Multi-Party Computation</p>
+					</div>
+				</div>
+			</div>
+			
+			<div class="py-4">
+				<h3 class="text-xl font-semibold">The Internet <span class="font-bold">Rebuilt</span> for you.</h3>
+				<p class="mb-4">Let's work together to make the web Safe and Sustainable.</p>
+			</div>
+			
 			@hero.Start()
 			@hero.Socials()
 		}
@@ -26,6 +59,42 @@ templ ReturningView() {
 					<sl-icon slot="suffix" library="sonr" name="arrow-right"></sl-icon>
 				</sl-button>
 			</div>
+			
+			<div class="mt-8 text-center">
+				<p class="text-sm text-gray-600">Secure Authentication with PassKeys</p>
+				<p class="text-xs mt-2">Backed by the most trusted investors in Web3</p>
+			</div>
 		}
 	}
+}
+
+templ ActionButtons() {
+	<div class="grid grid-cols-1 md:grid-cols-3 gap-4 mt-6">
+		<div class="p-4 border rounded-lg text-center">
+			<h3 class="font-bold text-lg mb-2">Read Docs</h3>
+			<p class="mb-3 text-sm">Get started with our comprehensive documentation</p>
+			<sl-button href="/docs/guides/getting-started" type="button">
+				Explore
+				<sl-icon slot="suffix" library="sonr" name="arrow-right"></sl-icon>
+			</sl-button>
+		</div>
+		
+		<div class="p-4 border rounded-lg text-center">
+			<h3 class="font-bold text-lg mb-2">Build Apps</h3>
+			<p class="mb-3 text-sm">Integrate Sonr without compromising workflows</p>
+			<sl-button type="button">
+				Explore
+				<sl-icon slot="suffix" library="sonr" name="arrow-right"></sl-icon>
+			</sl-button>
+		</div>
+		
+		<div class="p-4 border rounded-lg text-center">
+			<h3 class="font-bold text-lg mb-2">Join the Network</h3>
+			<p class="mb-3 text-sm">Earn rewards with code contributions</p>
+			<sl-button type="button">
+				Explore
+				<sl-icon slot="suffix" library="sonr" name="arrow-right"></sl-icon>
+			</sl-button>
+		</div>
+	</div>
 }
