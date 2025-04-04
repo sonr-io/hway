@@ -1,3 +1,5 @@
+*.aiderscript
+
 .DS_Store
 .aider*
 .vscode
